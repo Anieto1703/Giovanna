@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Feliz Cumpleaños, Giovanna! 🎉</title>
-    <!-- Google Fonts para un diseño moderno -->
+    <title>¡Expediente de Cumpleaños: Giovanna Flores Ignacio! ⚖️🎉</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,7 +13,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            background: linear-gradient(135deg, #1f4068 0%, #162447 50%, #e43f5a 100%);
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
             display: flex;
@@ -22,136 +21,219 @@
             align-items: center;
             overflow-x: hidden;
             padding: 20px;
+            position: relative;
+        }
+
+        /* Lluvia de Emojis de fondo */
+        .emoji-rain {
+            position: absolute;
+            top: -50px;
+            font-size: 1.5rem;
+            animation: fallEmoji linear infinite;
+            z-index: 1;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        @keyframes fallEmoji {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         .container {
             width: 100%;
-            max-width: 420px;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(10px);
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            max-width: 440px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             padding: 30px 20px;
             text-align: center;
             position: relative;
             z-index: 10;
-            border: 3px solid rgba(255, 255, 255, 0.6);
+            border: 4px solid #ff3366;
+        }
+
+        .badge-legal {
+            background: #162447;
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         h1 {
             font-family: 'Sacramento', cursive;
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             color: #ff3366;
-            margin-bottom: 5px;
+            margin-bottom: 0px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .subtitle {
-            font-size: 1.1rem;
-            color: #555;
-            font-weight: 600;
-            margin-bottom: 20px;
+            font-size: 1.15rem;
+            color: #162447;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
         .card-img {
-            font-size: 4.5rem;
-            margin: 15px 0;
+            font-size: 4rem;
+            margin: 10px 0;
             animation: bounce 2s infinite ease-in-out;
         }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: scale(1.1) translateY(-10px); }
+            50% { transform: scale(1.15) translateY(-10px); }
         }
 
         .message-box {
-            background: #fff0f3;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            border-left: 5px solid #ff3366;
+            background: #f4f6f9;
+            border-radius: 18px;
+            padding: 18px;
+            margin: 15px 0;
+            border-left: 6px solid #162447;
             text-align: left;
-            font-size: 0.95rem;
-            color: #444;
+            font-size: 0.88rem;
+            color: #333;
             line-height: 1.6;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
+            max-height: 220px;
+            overflow-y: auto;
         }
 
-        .message-box p {
-            margin-bottom: 10px;
+        .message-box h3 {
+            color: #ff3366;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            text-align: center;
         }
 
         .signatures {
             font-weight: 700;
-            color: #ff3366;
+            color: #162447;
             text-align: right;
             margin-top: 10px;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
         }
 
-        .btn {
-            background: linear-gradient(135deg, #ff3366 0%, #ff6b8b 100%);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
-            transition: all 0.3s ease;
-            margin-top: 10px;
-            width: 100%;
-        }
-
-        .btn:active {
-            transform: scale(0.95);
-        }
-
-        .hidden-surprise {
-            display: none;
-            margin-top: 20px;
-            animation: fadeIn 0.8s ease-in-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .badge-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+        /* Sección de interacción Sí / No */
+        .interactive-section {
+            background: #fff0f3;
+            border-radius: 15px;
+            padding: 15px;
             margin-top: 15px;
+            border: 2px dashed #ff3366;
         }
 
-        .badge {
-            background: #fff;
-            padding: 10px;
-            border-radius: 12px;
+        .interactive-section p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            min-height: 50px;
+        }
+
+        .btn-choice {
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-yes {
+            background: #28a745;
+            color: white;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+        }
+
+        .btn-no {
+            background: #dc3545;
+            color: white;
+            position: absolute;
+            box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4);
+        }
+
+        /* Selector interactivo de mejores amigos */
+        .friend-picker {
+            margin-top: 15px;
+            background: #e8f0fe;
+            padding: 12px;
+            border-radius: 15px;
+            border: 2px solid #4285f4;
+        }
+
+        .friend-picker p {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1a73e8;
+            margin-bottom: 8px;
+        }
+
+        .friend-chips {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            background: white;
+            border: 1px solid #4285f4;
+            padding: 6px 12px;
+            border-radius: 20px;
             font-size: 0.8rem;
-            color: #555;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-            border: 1px solid #ffe0e6;
+            font-weight: 600;
+            color: #1a73e8;
+            cursor: pointer;
+            transition: 0.2s;
         }
 
-        .badge span {
-            font-size: 1.5rem;
-            display: block;
-            margin-bottom: 5px;
+        .chip:hover, .chip.selected {
+            background: #4285f4;
+            color: white;
+            transform: scale(1.05);
         }
 
-        /* Estilos para el confeti animado */
+        #resultado-eleccion {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #d93025;
+            min-height: 20px;
+        }
+
+        /* Animación de confeti clásico */
         .confetti {
             position: absolute;
             width: 10px;
             height: 10px;
-            background-color: #f00;
             top: -10px;
             opacity: 0.8;
             animation: fall linear forwards;
-            z-index: 1;
+            z-index: 100;
         }
 
         @keyframes fall {
@@ -164,54 +246,121 @@
 </head>
 <body>
 
+    <!-- Contenedor para lluvia de emojis -->
+    <div id="rain-container"></div>
+
     <div class="container">
-        <div class="card-img">🎁👑✨</div>
+        <div class="badge-legal">Expediente N° 2026-CUMPLE-GIOVANNA</div>
         <h1>¡Feliz Cumpleaños!</h1>
-        <div class="subtitle">Giovanna Flores Ignacio</div>
+        <div class="subtitle">Dra. Giovanna Flores Ignacio 👩‍⚖️✨</div>
+
+        <div class="card-img">⚖️🎂🎉</div>
 
         <div class="message-box">
-            <p>Querida Giovanna, 🌸</p>
-            <p>En este día tan especial queremos desearte el más feliz de los cumpleaños. Eres una gran persona, de un corazón enorme, y nos sentimos sumamente afortunados de compartir esta bonita amistad contigo.</p>
-            <p>Que la vida te regale hoy y siempre muchísima felicidad, salud y éxitos en cada meta que te propongas. ¡Disfruta al máximo tu día! 🥂✨</p>
-            <div class="signatures">Con mucho cariño,<br>Katherine, Angel y Enrique 💙</div>
+            <h3>📜 Poema Jurídico-Disciplinario</h3>
+            <p><strong>VISTOS:</strong> El legajo afectivo presentado por la comisión evaluadora,</p>
+            <p><strong>CONSIDERANDO:</strong></p>
+            <p>Que, tras la instrucción del sumario a tu bondad sin límite,</p>
+            <p>se prueba que eres gran persona y de un corazón impecable;</p>
+            <p>que tu amistad está exenta de todo vicio o trámite,</p>
+            <p>y tu risa es el principio legal más irrefutable.</p>
+            <br>
+            <p><strong>SE RESUELVE:</strong></p>
+            <p>1. Declarar la <em>Absolución Total de la Tristeza</em> por todo este año.</p>
+            <p>2. Imponer medida cautelar de abrazos obligatorios sin daño.</p>
+            <p>3. Condenarte a ser inmensamente feliz y celebrar sin parar.</p>
+            <div class="signatures">Con fallo firme y sin apelación,<br>Katherine, Angel y Enrique 💙</div>
         </div>
 
-        <button class="btn" onclick="lanzarSorpresa()">¡Toca aquí para una sorpresa! 🎊</button>
-
-        <div id="sorpresa" class="hidden-surprise">
-            <p style="color: #ff3366; font-weight: 600; margin-bottom: 10px;">¡Te queremos muchísimo! 💖</p>
-            <div class="badge-grid">
-                <div class="badge"><span>🌟</span>Alegría</div>
-                <div class="badge"><span>🥂</span>Éxitos</div>
-                <div class="badge"><span>💖</span>Amistad</div>
+        <!-- Pregunta Interactiva Sí / No -->
+        <div class="interactive-section">
+            <p>¿Confirmas que hoy toca celebrar a lo grande? 🥳</p>
+            <div class="btn-group" id="btn-container">
+                <button class="btn-choice btn-yes" onclick="celebrarSi()">¡SÍ, CLARO! 🥂</button>
+                <button class="btn-choice btn-no" id="btn-no" onmouseover="moverNo()" onclick="moverNo()">Mmm... No 🤔</button>
             </div>
+        </div>
+
+        <!-- Selector de Mejores Amigos -->
+        <div class="friend-picker">
+            <p>¿Quiénes son tus mejores amigos oficiales? (¡Selecciona a todos! 👇)</p>
+            <div class="friend-chips">
+                <div class="chip" onclick="seleccionarAmigo(this, 'Katherine')">Katherine 🌸</div>
+                <div class="chip" onclick="seleccionarAmigo(this, 'Angel')">Angel 🌟</div>
+                <div class="chip" onclick="seleccionarAmigo(this, 'Enrique')">Enrique 🎸</div>
+            </div>
+            <div id="resultado-eleccion"></div>
         </div>
     </div>
 
     <script>
-        function lanzarSorpresa() {
-            // Muestra la sección oculta
-            document.getElementById('sorpresa').style.display = 'block';
+        // Lluvia constante de emojis variados
+        const emojis = ['🎂', '🎉', '💖', '⭐', '👑', '⚖️', '📜', '🎈', '✨', '🥂', '🥳'];
+        const rainContainer = document.getElementById('rain-container');
+
+        function crearEmojiLluvia() {
+            const span = document.createElement('div');
+            span.classList.add('emoji-rain');
+            span.style.left = Math.random() * window.innerWidth + 'px';
+            span.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            span.style.fontSize = (Math.random() * 1.2 + 1) + 'rem';
+            span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            rainContainer.appendChild(span);
+
+            setTimeout(() => {
+                span.remove();
+            }, 6000);
+        }
+
+        setInterval(crearEmojiLluvia, 300);
+
+        // Botón "No" que se escapa
+        function moverNo() {
+            const btnNo = document.getElementById('btn-no');
+            const x = Math.random() * 140 - 70;
+            const y = Math.random() * 60 - 30;
+            btnNo.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        // Al hacer clic en Sí
+        function celebrarSi() {
+            alert('🎉 ¡AUTO ADMISORIO PROCEDENTE! ¡Que comience la fiesta y el pastel para Giovanna! 🎂✨');
+            lanzarConfetiMasivo();
+        }
+
+        // Selector de mejores amigos
+        let seleccionados = 0;
+        function seleccionarAmigo(elemento, nombre) {
+            if (!elemento.classList.contains('selected')) {
+                elemento.classList.add('selected');
+                seleccionados++;
+            }
             
-            // Generar lluvia de confeti
-            for (let i = 0; i < 50; i++) {
-                crearConfeti();
+            const res = document.getElementById('resultado-eleccion');
+            if (seleccionados === 3) {
+                res.innerHTML = "✨ ¡Resolución aprobada por unanimidad! ¡Katherine, Angel y Enrique te quieren muchísimo! 💖";
+                lanzarConfetiMasivo();
+            } else {
+                res.innerHTML = `¡Muy bien! Has elegido a ${nombre}. ¡Te faltan más opciones! 😉`;
             }
         }
 
-        function crearConfeti() {
-            const confeti = document.createElement('div');
-            confeti.classList.add('confetti');
-            confeti.style.left = Math.random() * window.innerWidth + 'px';
-            confeti.style.backgroundColor = ['#ff3366', '#ffeb3b', '#4caf50', '#03a9f4', '#e91e63'][Math.floor(Math.random() * 5)];
-            confeti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            confeti.style.width = (Math.random() * 8 + 5) + 'px';
-            confeti.style.height = confeti.style.width;
-            document.body.appendChild(confeti);
+        // Efecto de Confeti
+        function lanzarConfetiMasivo() {
+            for (let i = 0; i < 70; i++) {
+                const confeti = document.createElement('div');
+                confeti.classList.add('confetti');
+                confeti.style.left = Math.random() * window.innerWidth + 'px';
+                confeti.style.backgroundColor = ['#ff3366', '#ffeb3b', '#4caf50', '#03a9f4', '#162447'][Math.floor(Math.random() * 5)];
+                confeti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confeti.style.width = (Math.random() * 10 + 5) + 'px';
+                confeti.style.height = confeti.style.width;
+                document.body.appendChild(confeti);
 
-            setTimeout(() => {
-                confeti.remove();
-            }, 5000);
+                setTimeout(() => {
+                    confeti.remove();
+                }, 5000);
+            }
         }
     </script>
 </body>
