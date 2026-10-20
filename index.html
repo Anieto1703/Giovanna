@@ -110,7 +110,7 @@
             color: #333;
             line-height: 1.6;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
-            max-height: 220px;
+            max-height: 280px;
             overflow-y: auto;
         }
 
@@ -120,12 +120,16 @@
             margin-bottom: 8px;
             text-align: center;
         }
+        
+        .message-box p {
+            margin-bottom: 8px;
+        }
 
         .signatures {
             font-weight: 700;
             color: #162447;
             text-align: right;
-            margin-top: 10px;
+            margin-top: 15px;
             font-size: 0.95rem;
         }
 
@@ -257,19 +261,14 @@
         <div class="card-img">⚖️🎂🎉</div>
 
         <div class="message-box">
-            <h3>📜 Poema Jurídico-Disciplinario</h3>
-            <p><strong>VISTOS:</strong> El legajo afectivo presentado por la comisión evaluadora,</p>
-            <p><strong>CONSIDERANDO:</strong></p>
-            <p>Que, tras la instrucción del sumario a tu bondad sin límite,</p>
-            <p>se prueba que eres gran persona y de un corazón impecable;</p>
-            <p>que tu amistad está exenta de todo vicio o trámite,</p>
-            <p>y tu risa es el principio legal más irrefutable.</p>
-            <br>
-            <p><strong>SE RESUELVE:</strong></p>
-            <p>1. Declarar la <em>Absolución Total de la Tristeza</em> por todo este año.</p>
-            <p>2. Imponer medida cautelar de abrazos obligatorios sin daño.</p>
-            <p>3. Condenarte a ser inmensamente feliz y celebrar sin parar.</p>
-            <div class="signatures">Con fallo firme y sin apelación,<br>Katherine, Angel y Enrique 💙</div>
+            <h3>📜 Resolución de Archivo Definitivo</h3>
+            <p><strong>VISTOS:</strong><br>El Informe de Precalificación N° 001-2026-AMISTAD, que evalúa el inicio del Procedimiento Administrativo Disciplinario (PAD) por onomástico contra la administrada Giovanna Flores Ignacio.</p>
+            <p><strong>CONSIDERANDO:</strong><br>Que, habiéndose analizado los hechos imputados, se comprueba que la conducta de la administrada encuadra en la falta gravísima de "ser una persona excepcional, incondicional y robarse el cariño de todos".</p>
+            <p>Que, tras el descargo correspondiente, concurre una causal eximente de responsabilidad frente a cualquier tipo de tristeza, estrés o desánimo durante este nuevo año de vida.</p>
+            <p><strong>SE RESUELVE:</strong><br>
+            <strong>Artículo Primero.-</strong> Declarar la caducidad y prescripción de cualquier preocupación o amargura en su contra.<br>
+            <strong>Artículo Segundo.-</strong> Imponer como sanción principal e inimpugnable: una celebración obligatoria con goce de haber, abrazos severos y ejecución coactiva de pastel en primera instancia.</p>
+            <div class="signatures">Firman el Órgano Instructor y Sancionador:<br>Katherine y Angel 💙</div>
         </div>
 
         <!-- Pregunta Interactiva Sí / No -->
@@ -287,7 +286,6 @@
             <div class="friend-chips">
                 <div class="chip" onclick="seleccionarAmigo(this, 'Katherine')">Katherine 🌸</div>
                 <div class="chip" onclick="seleccionarAmigo(this, 'Angel')">Angel 🌟</div>
-                <div class="chip" onclick="seleccionarAmigo(this, 'Enrique')">Enrique 🎸</div>
             </div>
             <div id="resultado-eleccion"></div>
         </div>
@@ -328,7 +326,7 @@
             lanzarConfetiMasivo();
         }
 
-        // Selector de mejores amigos
+        // Selector de mejores amigos (actualizado para 2 personas)
         let seleccionados = 0;
         function seleccionarAmigo(elemento, nombre) {
             if (!elemento.classList.contains('selected')) {
@@ -337,11 +335,12 @@
             }
             
             const res = document.getElementById('resultado-eleccion');
-            if (seleccionados === 3) {
-                res.innerHTML = "✨ ¡Resolución aprobada por unanimidad! ¡Katherine, Angel y Enrique te quieren muchísimo! 💖";
+            // Como ahora son 2, la condición cambia a 2
+            if (seleccionados === 2) {
+                res.innerHTML = "✨ ¡Resolución aprobada por unanimidad! ¡Katherine y Angel te quieren muchísimo! 💖";
                 lanzarConfetiMasivo();
             } else {
-                res.innerHTML = `¡Muy bien! Has elegido a ${nombre}. ¡Te faltan más opciones! 😉`;
+                res.innerHTML = `¡Muy bien! Has elegido a ${nombre}. ¡Te falta una opción más! 😉`;
             }
         }
 
